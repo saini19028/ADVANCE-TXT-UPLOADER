@@ -540,23 +540,23 @@ async def upload(bot: Client, m: Message):
     #else:
         #MR = raw_text4
     
-await editable.edit(f"01. 🌅Send ☞ Direct **Thumb Photo**\n\n"
-                        f"02. 🔗Send ☞ `Thumb URL` for **Thumbnail**\n\n"
-                        f"03. 🎞️Send ☞ `no` for **video** format\n\n"
-                        f"04. 📁Send ☞ `No` for **Document** format")
-input6 = message = await bot.listen(editable.chat.id)
-raw_text6 = input6.text
-await input6.delete(True)
-await editable.delete()
+await editable.edit("𝗡𝗼𝘄 𝗦𝗲𝗻𝗱 𝗧𝗵𝗲 𝗧𝗵𝘂𝗺𝗯 𝗨𝗿𝗹 𝗘𝗴 » https://telegra.ph/file/e91729341175f7e6c4e7e.png\n\n𝗢𝗿 𝗜𝗳 𝗗𝗼𝗻'𝘁 𝗪𝗮𝗻𝘁 𝗧𝗵𝘂𝗺𝗯𝗻𝗮𝗶𝗹 𝗦𝗲𝗻𝗱 = 𝗻𝗼")
+    input6 = message = await bot.listen(editable.chat.id)
+    raw_text6 = input6.text
+    await input6.delete(True)
+    await editable.delete()
 
-thumb = input6
-if input6.photo:
-    thumb = await input6.download()
-elif raw_text6.startswith("http://") or raw_text6.startswith("https://"):
-    getstatusoutput(f"wget '{raw_text6}' -O 'thumb.jpg'")
-    thumb = "thumb.jpg"
-else:
-    thumb = raw_text6
+    thumb = input6.text
+    if thumb.startswith("http://") or thumb.startswith("https://"):
+        getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
+        thumb = "thumb.jpg"
+    else:
+        thumb == "no"
+    failed_count =0
+    if len(links) == 1:
+        count = 1
+    else:
+        count = int(raw_text
 
     try:
         for i in range(count - 1, len(links)):
