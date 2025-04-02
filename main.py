@@ -540,24 +540,26 @@ async def upload(bot: Client, m: Message):
     #else:
         #MR = raw_text4
     
-     await editable.edit(f"01. 🌅Send ☞ Direct **Thumb Photo**\n\n"
-                        f"02. 🔗Send ☞ `Thumb URL` for **Thumbnail**\n\n"
-                        f"03. 🎞️Send ☞ `no` for **video** format\n\n"
-                        f"04. 📁Send ☞ `No` for **Document** format")
-    input6 = message = await bot.listen(editable.chat.id)
-    raw_text6 = input6.text
-    await input6.delete(True)
-    await editable.delete()
+     await editable.edit(
+    "01. 🌅Send ☞ Direct **Thumb Photo**\n\n"
+    "02. 🔗Send ☞ `Thumb URL` for **Thumbnail**\n\n"
+    "03. 🎞️Send ☞ `no` for **video** format\n\n"
+    "04. 📁Send ☞ `No` for **Document** format"
+)
 
-    thumb = input6
-    if input6.photo:
-        thumb = await input6.download()
-    elif raw_text6.startswith("http://") or raw_text6.startswith("https://"):
-        getstatusoutput(f"wget '{raw_text6}' -O 'thumb.jpg'")
-        thumb = "thumb.jpg"
-    else:
-        thumb = raw_text6
+input6 = message = await bot.listen(editable.chat.id)
+raw_text6 = input6.text
+await input6.delete(True)
+await editable.delete()
 
+thumb = input6
+if input6.photo:
+    thumb = await input6.download()
+elif raw_text6.startswith("http://") or raw_text6.startswith("https://"):
+    getstatusoutput(f"wget '{raw_text6}' -O 'thumb.jpg'")
+    thumb = "thumb.jpg"
+else:
+    thumb = raw_text6
     try:
         for i in range(count - 1, len(links)):
             V = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","") # .replace("mpd","m3u8")
