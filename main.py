@@ -540,8 +540,7 @@ async def upload(bot: Client, m: Message):
     #else:
         #MR = raw_text4
     
-     await editable.edit(
-    "01. 🌅Send ☞ Direct **Thumb Photo**\n\n"
+     await editable.edit("01. 🌅Send ☞ Direct **Thumb Photo**\n\n"
     "02. 🔗Send ☞ `Thumb URL` for **Thumbnail**\n\n"
     "03. 🎞️Send ☞ `no` for **video** format\n\n"
     "04. 📁Send ☞ `No` for **Document** format"
