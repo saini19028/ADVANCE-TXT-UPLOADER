@@ -555,13 +555,12 @@ async def upload(bot: Client, m: Message):
     failed_count =0
     if len(links) == 1:
         count = 1
-        
-    await m.reply_text(
-        f"<pre><code>**🎯Target Batch :** `{b_name}`</code></pre>"
-    )
     else:
         count = int(raw_text)
-
+        
+   await m.reply_text(
+           f"<pre><code>**🎯Target Batch :** `{b_name}`</code></pre>"
+    )
     try:
         for i in range(count - 1, len(links)):
             V = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","") # .replace("mpd","m3u8")
